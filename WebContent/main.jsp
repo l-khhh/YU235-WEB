@@ -21,11 +21,19 @@
 		<meta charset="EUC-KR" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
+	
+	<script language=javascript>	
+	function ref() {//현재 페이지를 닫고 수정하기, 삭제하기 버튼을 눌렀을 경우 각각 해당하는 서블릿으로 이동하며 main페이지의 새로고침을 위해 만들어진 함수
+		opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+
+	}
+</script>
+
 </head>
 
 
 <body>
+
 		<!-- Header -->
 			<header id="header">
 				<nav class="left">
@@ -74,7 +82,6 @@
 				<%-- 테이블의 첫 행에 이름  --%>
 			</tr>
 		</thead>
-
 		<%
 			//main페이지에 pk인 id와 이름을 간략하게 표시해주기 위해 DB에 접근하여 employee테이블의 모든 정보를 id의 오름차순으로 출력한다.
 			//select id, name from employee order by id;
@@ -129,7 +136,6 @@
 		</tbody>
 	</table>
 
-
 	<script>
 		// 테이블의 Row 클릭시 값 가져오기
 		$("#employee tr").dblclick(
@@ -146,6 +152,7 @@
 							//더블 클릭시 선택된 행의 id값을 주키로 select.jsp페이지를 호출한다.
 							window.open('select.jsp?id=' + userId, '조회', 'width=400, height=400, menubar=no, status=no, toolbar=no');
 						});
+
 		
 	</script>
 	<!-- Footer -->
@@ -169,6 +176,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
 	
 </body>
 </html>

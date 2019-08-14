@@ -85,7 +85,7 @@
 						</div>
 						<div class="content">
 							<h3>2번</h3>
-							<p>혜주방</p>
+							<p>안방</p>
 						</div>
 					</div>
 					<div class="flex-item box">

@@ -12,12 +12,19 @@
 	function btn_click(n) {//현재 페이지를 닫고 수정하기, 삭제하기 버튼을 눌렀을 경우 각각 해당하는 서블릿으로 이동하며 main페이지의 새로고침을 위해 만들어진 함수
 		if (n == "modify") {	//수정하기 버튼이 선택되었을 경우
 			frm1.action = "/YU235/update";	//수정하기 서블릿으로 이동하며
+			setTimeout(function(){
 			window.self.close();	//현재의 창을 닫고
-			opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+				opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+				 },10);
+			
+			
 		} else {	//삭제하기 버튼이 선택되었을 경우
 			frm1.action = "/YU235/delete";	//삭제하기 서블릿으로 이동하며
+			setTimeout(function(){
 			window.self.close();	//현재의 창을 닫고
-			opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+				opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+				 },10);
+			
 		}
 	}
 </script>

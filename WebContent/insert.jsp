@@ -9,10 +9,13 @@
 <title>Insert title here</title>
 <script language=javascript>	//현재 페이지를 닫고 새로고침을 위해 만든 함수
 function refresh() {									//새로고침을 위한 스크립트
-window.close();											//현재 페이지를 닫음
-opener.location.href = "/YU235/main.jsp";			//main페이지를 새로고침한다.
+	setTimeout(function(){
+		window.self.close();	//현재의 창을 닫고
+			opener.location.href = "/YU235/main.jsp";	//main.jsp를 새로고침한다.
+			 },10);
 }
 </script>
+			
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/main.css" />
 
