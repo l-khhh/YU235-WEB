@@ -47,19 +47,19 @@ public class updateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		String str = (String) request.getParameter("userId");
 
 		try {
-			DO x = new DO(); // do ��ü ����
-			DAO y = new DAO(); // dao ��ü ����
+			DO x = new DO(); 
+			DAO y = new DAO(); 
 
-			// ����������
-			x.setId(str); // post�� �Ѿ�� id���� x�� id�� set
-			x.setName(request.getParameter("name")); // post�� �Ѿ�� name���� x�� name���� set
-			x.setHori(request.getParameter("hori"));// post�� �Ѿ�� sex���� x�� sex���� set
-			x.setVert(request.getParameter("vert"));// post�� �Ѿ�� position���� x�� position���� set
+			
+			x.setId(str); 
+			x.setName(request.getParameter("name"));
+			x.setHori(request.getParameter("hori"));
+			x.setVert(request.getParameter("vert"));
 
 			System.out.println("updateServlet ����");
 			System.out.println("ID : " + x.getId() + "입니다.");
@@ -67,7 +67,7 @@ public class updateServlet extends HttpServlet {
 			System.out.println("hori : " + x.getHori() + " 입니다.");
 			System.out.println("vert : " + x.getVert() + " 입니다.");
 			
-			y.updateItem(x);// dao�� updateitem �޼ҵ忡 ����
+			y.updateItem(x);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

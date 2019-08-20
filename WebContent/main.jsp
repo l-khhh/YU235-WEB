@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 <title></title>
 
@@ -18,13 +18,13 @@
 <link	href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <head>
 		<title>Intensify by TEMPLATED</title>
-		<meta charset="EUC-KR" />
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	
 	<script language=javascript>	
-	function ref() {//ÇöÀç ÆäÀÌÁö¸¦ ´İ°í ¼öÁ¤ÇÏ±â, »èÁ¦ÇÏ±â ¹öÆ°À» ´­·¶À» °æ¿ì °¢°¢ ÇØ´çÇÏ´Â ¼­ºí¸´À¸·Î ÀÌµ¿ÇÏ¸ç mainÆäÀÌÁöÀÇ »õ·Î°íÄ§À» À§ÇØ ¸¸µé¾îÁø ÇÔ¼ö
-		opener.location.href = "/YU235/main.jsp";	//main.jsp¸¦ »õ·Î°íÄ§ÇÑ´Ù.
+	function ref() {//í˜„ì¬ í˜ì´ì§€ë¥¼ ë‹«ê³  ìˆ˜ì •í•˜ê¸°, ì‚­ì œí•˜ê¸° ë²„íŠ¼ì„ ëˆŒë €ì„ ê²½ìš° ê°ê° í•´ë‹¹í•˜ëŠ” ì„œë¸”ë¦¿ìœ¼ë¡œ ì´ë™í•˜ë©° mainí˜ì´ì§€ì˜ ìƒˆë¡œê³ ì¹¨ì„ ìœ„í•´ ë§Œë“¤ì–´ì§„ í•¨ìˆ˜
+		opener.location.href = "/YU235/main.jsp";	//main.jspë¥¼ ìƒˆë¡œê³ ì¹¨í•œë‹¤.
 
 	}
 </script>
@@ -39,16 +39,16 @@
 				<nav class="left">
 					<a href="#menu"><span>Menu</span></a>
 				</nav>
-				<a href="index.jsp" class="logo">YU235</a>
+				<a href="inde.html" class="logo">YU235</a>
 			</header>
 
 		<!-- Menu -->
 			<nav id="menu">
 				<ul class="links">
-					<li><a href="index.jsp">Home</a></li>
-					<li><a href="detail.jsp">Á¦Ç°¼³¸í¼­</a></li>
-					<li><a href="main.jsp">Ã»¼Ò ½ÃÀÛ</a></li>
-					<li><a href="people.jsp">Á¦ÀÛÀÚ</a></li>
+					<li><a href="inde.html">Home</a></li>
+					<li><a href="detail.html">ì œí’ˆì„¤ëª…ì„œ</a></li>
+					<li><a href="main.jsp">ì²­ì†Œ ì‹œì‘</a></li>
+					<li><a href="people.html">ì œì‘ì</a></li>
 				</ul>
 				<ul class="actions vertical">
 					<li><a href="#" class="button fit">Login</a></li>
@@ -57,79 +57,79 @@
 
 	<div>
 		<br> <br>
-		<%-- ÁÙ¹Ù²Ş --%>
+		<%-- ì¤„ë°”ê¿ˆ --%>
 	</div>
 	<div align="right">
-			<input  type="button" value="¹æ µî·Ï" 
-				<%-- »ç¿øµî·Ï ¹öÆ° Ãß°¡ --%>
-				<%-- »ç¿øÃß°¡ ¹öÆ° ¼±ÅÃ½Ã insert.jsp ÆË¾÷Ã¢ ¿­±â --%>
-				onclick="window.open('insert.jsp','»ç¿øÃß°¡ÇÏ±â','width=400, height=400, menubar=no, status=no, toolbar=no');"><br>
+			<input  type="button" value="ë°© ë“±ë¡" 
+				<%-- ì‚¬ì›ë“±ë¡ ë²„íŠ¼ ì¶”ê°€ --%>
+				<%-- ì‚¬ì›ì¶”ê°€ ë²„íŠ¼ ì„ íƒì‹œ insert.jsp íŒì—…ì°½ ì—´ê¸° --%>
+				onclick="window.open('insert.html','ì‚¬ì›ì¶”ê°€í•˜ê¸°','width=400, height=400, menubar=no, status=no, toolbar=no');"><br>
 	</div>
 	<div>
 		<hr><br> <br>
 	</div>
 
 
-	<%--Å×ÀÌºí »ı¼º --%>
+	<%--í…Œì´ë¸” ìƒì„± --%>
 	<table id="employee" border="1" width="300"
 		class="table table-bordered table-hover text-center">
 
 		<thead>
 			<tr>
-				<th>¹æ</th>
-				<%-- Å×ÀÌºíÀÇ Ã¹ Çà¿¡ »ç¹ø  --%>
-				<th>¹æÀÌ¸§</th>
-				<%-- Å×ÀÌºíÀÇ Ã¹ Çà¿¡ ÀÌ¸§  --%>
+				<th>ë°©</th>
+				<%-- í…Œì´ë¸”ì˜ ì²« í–‰ì— ì‚¬ë²ˆ  --%>
+				<th>ë°©ì´ë¦„</th>
+				<%-- í…Œì´ë¸”ì˜ ì²« í–‰ì— ì´ë¦„  --%>
 			</tr>
 		</thead>
 		<%
-			//mainÆäÀÌÁö¿¡ pkÀÎ id¿Í ÀÌ¸§À» °£·«ÇÏ°Ô Ç¥½ÃÇØÁÖ±â À§ÇØ DB¿¡ Á¢±ÙÇÏ¿© employeeÅ×ÀÌºíÀÇ ¸ğµç Á¤º¸¸¦ idÀÇ ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÑ´Ù.
+			//mainí˜ì´ì§€ì— pkì¸ idì™€ ì´ë¦„ì„ ê°„ëµí•˜ê²Œ í‘œì‹œí•´ì£¼ê¸° ìœ„í•´ DBì— ì ‘ê·¼í•˜ì—¬ employeeí…Œì´ë¸”ì˜ ëª¨ë“  ì •ë³´ë¥¼ idì˜ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•œë‹¤.
 			//select id, name from employee order by id;
-			Connection conn = null; // null·Î ÃÊ±âÈ­ ÇÑ´Ù.
+			Connection conn = null; // nullë¡œ ì´ˆê¸°í™” í•œë‹¤.
 
-			//main.jsp´Â db¸¦ ÀÚÁÖ Á¢±ÙÇÏ¸ç µ¿ÀÏÇÑ Äõ¸®¸¦ »ç¿ëÇÏ±â ¶§¹®¿¡ Ä³½Ã¿¡ ¿Ã·ÁµÎ°í ¾²´Â °ÍÀÌ ÁÁ´Ù.
-			//µû¶ó¼­ statement°¡ ¾Æ´Ñ preparedstatement¸¦ »ç¿ëÇÑ´Ù.
+			//main.jspëŠ” dbë¥¼ ìì£¼ ì ‘ê·¼í•˜ë©° ë™ì¼í•œ ì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•˜ê¸° ë•Œë¬¸ì— ìºì‹œì— ì˜¬ë ¤ë‘ê³  ì“°ëŠ” ê²ƒì´ ì¢‹ë‹¤.
+			//ë”°ë¼ì„œ statementê°€ ì•„ë‹Œ preparedstatementë¥¼ ì‚¬ìš©í•œë‹¤.
 			PreparedStatement stmt = null;
 
 			try {
-				String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB"); //"ÁÖ¼Ò:Æ÷Æ®:DB¸í"
+				String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB"); //"ì£¼ì†Œ:í¬íŠ¸:DBëª…"
 				String user = "system"; //username
 				String passwd = "tiger"; //password
 
-				Class.forName("oracle.jdbc.driver.OracleDriver"); // µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿ÇÏ±â À§ÇØ DriverManager¿¡ µî·ÏÇÑ´Ù.
-				conn = DriverManager.getConnection(connect, user, passwd); // DriverManager °´Ã¼·ÎºÎÅÍ Connection °´Ã¼¸¦ ¾ò¾î¿Â´Ù.
-				String sql = "select id, name from yu235 order by id"; // sql Äõ¸® , id¸¦ ¿À¸§Â÷¼øÀ¸·Î ÀüÃ¼ id¿Í nameÀ» Ãâ·ÂÇÑ´Ù.
-				stmt = conn.prepareStatement(sql); // prepareStatement¿¡¼­ ÇØ´ç sqlÀ» ¹Ì¸® ÄÄÆÄÀÏÇÑ´Ù.
-				ResultSet rset = stmt.executeQuery(); // Äõ¸®¸¦ ½ÇÇàÇÏ°í °á°ú¸¦ ResultSet °´Ã¼¿¡ ´ã´Â´Ù.
+				Class.forName("oracle.jdbc.driver.OracleDriver"); // ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ë™í•˜ê¸° ìœ„í•´ DriverManagerì— ë“±ë¡í•œë‹¤.
+				conn = DriverManager.getConnection(connect, user, passwd); // DriverManager ê°ì²´ë¡œë¶€í„° Connection ê°ì²´ë¥¼ ì–»ì–´ì˜¨ë‹¤.
+				String sql = "select id, name from cleaning order by id"; // sql ì¿¼ë¦¬ , idë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì „ì²´ idì™€ nameì„ ì¶œë ¥í•œë‹¤.
+				stmt = conn.prepareStatement(sql); // prepareStatementì—ì„œ í•´ë‹¹ sqlì„ ë¯¸ë¦¬ ì»´íŒŒì¼í•œë‹¤.
+				ResultSet rset = stmt.executeQuery(); // ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•˜ê³  ê²°ê³¼ë¥¼ ResultSet ê°ì²´ì— ë‹´ëŠ”ë‹¤.
 
-				while (rset.next()) { // °á°ú¸¦ ÇÑ Çà¾¿ µ¹¾Æ°¡¸é¼­ °¡Á®¿Â´Ù.
-					String id = rset.getString("id"); //StringÇü id¸¦ ¼±¾ğÇÏ¿© dbÀÇ id¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-					String name = rset.getString("name"); //StringÇü nameÀ» ¼±¾ğÇÏ¿© dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
+				while (rset.next()) { // ê²°ê³¼ë¥¼ í•œ í–‰ì”© ëŒì•„ê°€ë©´ì„œ ê°€ì ¸ì˜¨ë‹¤.
+					String id = rset.getString("id"); //Stringí˜• idë¥¼ ì„ ì–¸í•˜ì—¬ dbì˜ idì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+					String name = rset.getString("name"); //Stringí˜• nameì„ ì„ ì–¸í•˜ì—¬ dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 		%>
 		<tbody>
 			<tr>
 				<td width="100"><%=id%></td>
-				<%--¿À¸§Â÷¼øÀ¸·Î ³ª¿Â dbµ¥ÀÌÅÍÀÇ °¡Àå ÀÛÀº idºÎÅÍ Çà Ãß°¡ --%>
+				<%--ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë‚˜ì˜¨ dbë°ì´í„°ì˜ ê°€ì¥ ì‘ì€ idë¶€í„° í–‰ ì¶”ê°€ --%>
 				<td width="100"><%=name%></td>
-				<%--¿À¸§Â÷¼øÀ¸·Î ³ª¿Â dbµ¥ÀÌÅÍÀÇ °¡Àå ÀÛÀº idÀÇ nameºÎÅÍ Çà Ãß°¡ --%>
-				<td width="10"><input type="submit" value="Ã»¼Ò ½ÃÀÛ"
-					<%-- ÀüÃ¼ µ¥ÀÌÅÍ ¹é¾÷ ¹öÆ° Ãß°¡ --%>
-				<%-- »ç¿øÃß°¡ ¹öÆ° ¼±ÅÃ½Ã insert.jsp ÆË¾÷Ã¢ ¿­±â --%>
-				onclick="window.open('popup.jsp?id=' + <%=id%>, '¾Ë¸²', 'width=400, height=250, menubar=no, status=no, toolbar=no');">
-					<input type="submit" value="Ã»¼Ò ¿¹¾à"
-					<%-- ÀüÃ¼ µ¥ÀÌÅÍ ¹é¾÷ ¹öÆ° Ãß°¡ --%>
-				<%-- »ç¿øÃß°¡ ¹öÆ° ¼±ÅÃ½Ã insert.jsp ÆË¾÷Ã¢ ¿­±â --%>
-				onclick="window.open('reserve.jsp?id=' + <%=id%>, '¿¹¾à', 'width=400, height=350, menubar=no, status=no, toolbar=no');">
-					<input type="submit" value="Ã»¼Ò³»¿ªº¸±â"
-				onclick="window.open('log.jsp?id='+<%=id %>,'Ã»¼Ò³»¿ª','width=500, height=500, menubar=no, status=no, toolbar=no');">
+				<%--ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë‚˜ì˜¨ dbë°ì´í„°ì˜ ê°€ì¥ ì‘ì€ idì˜ nameë¶€í„° í–‰ ì¶”ê°€ --%>
+				<td width="10"><input type="submit" value="ì²­ì†Œ ì‹œì‘"
+					<%-- ì „ì²´ ë°ì´í„° ë°±ì—… ë²„íŠ¼ ì¶”ê°€ --%>
+				<%-- ì‚¬ì›ì¶”ê°€ ë²„íŠ¼ ì„ íƒì‹œ insert.jsp íŒì—…ì°½ ì—´ê¸° --%>
+				onclick="window.open('popup.jsp?id=' + <%=id%>, 'ì•Œë¦¼', 'width=400, height=250, menubar=no, status=no, toolbar=no');">
+					<input type="submit" value="ì²­ì†Œ ì˜ˆì•½"
+					<%-- ì „ì²´ ë°ì´í„° ë°±ì—… ë²„íŠ¼ ì¶”ê°€ --%>
+				<%-- ì‚¬ì›ì¶”ê°€ ë²„íŠ¼ ì„ íƒì‹œ insert.jsp íŒì—…ì°½ ì—´ê¸° --%>
+				onclick="window.open('reserve.jsp?id=' + <%=id%>, 'ì˜ˆì•½', 'width=400, height=350, menubar=no, status=no, toolbar=no');">
+					<input type="submit" value="ì²­ì†Œë‚´ì—­ë³´ê¸°"
+				onclick="window.open('log.jsp?id='+<%=id %>,'ì²­ì†Œë‚´ì—­','width=500, height=500, menubar=no, status=no, toolbar=no');">
 				</td>
 			</tr>
 			<%
 				}
 					conn.close();
-				} catch (Exception e) { // ¿¹¿Ü°¡ ¹ß»ıÇÏ¸é ¿¹¿Ü »óÈ²À» Ã³¸®ÇÑ´Ù.
+				} catch (Exception e) { // ì˜ˆì™¸ê°€ ë°œìƒí•˜ë©´ ì˜ˆì™¸ ìƒí™©ì„ ì²˜ë¦¬í•œë‹¤.
 					e.printStackTrace();
-					out.println("yu235 Å×ÀÌºí È£Ãâ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+					out.println("yu235 í…Œì´ë¸” í˜¸ì¶œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 				}
 			%>
 
@@ -137,20 +137,20 @@
 	</table>
 
 	<script>
-		// Å×ÀÌºíÀÇ Row Å¬¸¯½Ã °ª °¡Á®¿À±â
+		// í…Œì´ë¸”ì˜ Row í´ë¦­ì‹œ ê°’ ê°€ì ¸ì˜¤ê¸°
 		$("#employee tr").dblclick(
 						function() {
-							// ÇöÀç Å¬¸¯µÈ Row(<tr>)
+							// í˜„ì¬ í´ë¦­ëœ Row(<tr>)
 							var tr = $(this);
 							var td = tr.children();
-							// ¹İº¹¹®À» ÀÌ¿ëÇØ¼­ ¹è¿­¿¡ °ªÀ» ´ã¾Æ »ç¿ëÇÒ ¼ö µµ ÀÖ´Ù.
+							// ë°˜ë³µë¬¸ì„ ì´ìš©í•´ì„œ ë°°ì—´ì— ê°’ì„ ë‹´ì•„ ì‚¬ìš©í•  ìˆ˜ ë„ ìˆë‹¤.
 
-							// td.eq(index)¸¦ ÅëÇØ °ªÀ» °¡Á®¿Ã ¼öµµ ÀÖ´Ù.
+							// td.eq(index)ë¥¼ í†µí•´ ê°’ì„ ê°€ì ¸ì˜¬ ìˆ˜ë„ ìˆë‹¤.
 							var userId = td.eq(0).text();
 							//var name = td.eq(1).text();
 
-							//´õºí Å¬¸¯½Ã ¼±ÅÃµÈ ÇàÀÇ id°ªÀ» ÁÖÅ°·Î select.jspÆäÀÌÁö¸¦ È£ÃâÇÑ´Ù.
-							window.open('select.jsp?id=' + userId, 'Á¶È¸', 'width=400, height=400, menubar=no, status=no, toolbar=no');
+							//ë”ë¸” í´ë¦­ì‹œ ì„ íƒëœ í–‰ì˜ idê°’ì„ ì£¼í‚¤ë¡œ select.jspí˜ì´ì§€ë¥¼ í˜¸ì¶œí•œë‹¤.
+							window.open('select.jsp?id=' + userId, 'ì¡°íšŒ', 'width=400, height=400, menubar=no, status=no, toolbar=no');
 						});
 
 		
@@ -158,11 +158,11 @@
 	<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
-					<h2>Ã£¾Æ ¿À´Â °÷</h2>
+					<h2>ì°¾ì•„ ì˜¤ëŠ” ê³³</h2>
 					<ul class="actions">
 						<li><span class="icon fa-phone"></span> <a href="#">010-1234-5678</a></li>
-						<li><span class="icon fa-envelope"></span> <a href="#">ÇÏÀÌ@gmail.com</a></li>
-						<li><span class="icon fa-map-marker"></span> ¿µ³²´ëÇĞ±³ IT°ü 235È£</li>
+						<li><span class="icon fa-envelope"></span> <a href="#">í•˜ì´@gmail.com</a></li>
+						<li><span class="icon fa-map-marker"></span> ì˜ë‚¨ëŒ€í•™êµ ITê´€ 235í˜¸</li>
 					</ul>
 				</div>
 				<div class="copyright">

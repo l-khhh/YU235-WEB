@@ -48,23 +48,23 @@ public class reserveServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		String str = (String) request.getParameter("userId");
 		String time=(String) request.getParameter("time");
 		try {
-			DO x = new DO(); // do ��ü ����
-			DAO y = new DAO(); // dao ��ü ����
+			DO x = new DO(); 
+			DAO y = new DAO(); 
 
-			// ����������
-			x.setId(str); // post�� �Ѿ�� id���� x�� id�� set
+			
+			x.setId(str);
 			x.setReservation(time);
 			
-			System.out.println("startServlet ����");
+			System.out.println("startServlet 실행");
 			System.out.println("ID : " + x.getId() + "입니다.");
 			System.out.println("예약시간 : " + x.getReservation() + " 입니다.");
 			
-			y.reserveItem(x);// dao�� updateitem �޼ҵ忡 ����
+			y.reserveItem(x);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

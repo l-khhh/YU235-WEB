@@ -20,10 +20,14 @@ class DAO {
 		try {
 			Connection conn = getConn();
 			Statement stmt = conn.createStatement();
-			stmt.executeQuery("insert into yu235 (id,name,hori,vert) values(seq235.nextval, '" + a.getName() + "', '" + a.getHori()
+			stmt.executeQuery("insert into cleaning (id,name,hori,vert) values(seq1.nextval, '" + a.getName() + "', '" + a.getHori()
 					+ "', '" + a.getVert() + "')");
 			conn.close();
 		} catch (SQLException e) {
+			
+			
+			
+			
 			e.printStackTrace();
 		}
 		return true;
@@ -33,7 +37,7 @@ class DAO {
 		try {
 			Connection conn = getConn();
 			Statement stmt = conn.createStatement();
-			ResultSet rset = stmt.executeQuery("delete from yu235 where id =" + a.getId());
+			ResultSet rset = stmt.executeQuery("delete from cleaning where id =" + a.getId());
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -45,7 +49,7 @@ class DAO {
 		try {
 			Connection conn = getConn();
 			Statement stmt = conn.createStatement();
-			ResultSet rset = stmt.executeQuery(" update yu235 set name='" + a.getName() + "', hori='" + a.getHori()
+			ResultSet rset = stmt.executeQuery(" update cleaning set name='" + a.getName() + "', hori='" + a.getHori()
 					+ "', vert='" + a.getVert() + "' where id=" + a.getId());
 			conn.close();
 		} catch (SQLException e) {
@@ -58,7 +62,7 @@ class DAO {
 		try {
 			Connection conn = getConn();
 			Statement stmt = conn.createStatement();
-			ResultSet rset = stmt.executeQuery(" update yu235 set onoff='" + a.getOnoff() + "' where id=" + a.getId());
+			ResultSet rset = stmt.executeQuery(" update cleaning set onoff='" + a.getOnoff() + "' where id=" + a.getId());
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -70,7 +74,7 @@ class DAO {
 		try {
 			Connection conn = getConn();
 			Statement stmt = conn.createStatement();
-			ResultSet rset = stmt.executeQuery(" update yu235 set reservation='" + a.getReservation() + "' where id=" + a.getId());
+			ResultSet rset = stmt.executeQuery(" update cleaning set reservation='" + a.getReservation() + "' where id=" + a.getId());
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

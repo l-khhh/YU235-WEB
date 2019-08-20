@@ -18,7 +18,7 @@ public class insertServlet extends HttpServlet {
 
 	public void init(ServletConfig conf) throws ServletException {// ������ �ʱ�ȭ�� db����
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver"); // �����ͺ��̽��� �����ϱ� ���� DriverManager�� ����Ѵ�.
+			Class.forName("oracle.jdbc.driver.OracleDriver"); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,27 +46,28 @@ public class insertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		try {
-			DO x = new DO(); // do ��ü ����
-			DAO y = new DAO(); // dao ��ü ����
+			DO x = new DO(); 
+			DAO y = new DAO(); 
 
-			// ����������
+			
 			x.setId(request.getParameter("id")); // post�� �Ѿ�� id���� x�� id�� set
 			x.setName(request.getParameter("name")); // post�� �Ѿ�� name���� x�� name���� set
 			x.setHori(request.getParameter("hori"));// post�� �Ѿ�� sex���� x�� sex���� set
 			x.setVert(request.getParameter("vert"));// post�� �Ѿ�� position���� x�� position���� set
 
-			// �Ѿ�� ������ ���������� �� �Ѿ�Դ��� �ֿܼ��� Ȯ��
-			System.out.println("insertServlet ����");
+			System.out.println("insertServlet 실행");
 			System.out.println("ID : " + x.getId() + "입니다.");
 			System.out.println("name : " + x.getName() + " 입니다.");
 			System.out.println("hori : " + x.getHori() + " 입니다.");
 			System.out.println("vert : " + x.getVert() + " 입니다.");
 
-			y.insertItem(x); // dao�� insertitem �޼ҵ忡 ����
+			y.insertItem(x); 
 		} catch (Exception e) {
+			
+
 			e.printStackTrace();
 		}
 

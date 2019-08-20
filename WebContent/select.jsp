@@ -1,28 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 
 
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <script language=javascript>	
-	function btn_click(n) {//ÇöÀç ÆäÀÌÁö¸¦ ´İ°í ¼öÁ¤ÇÏ±â, »èÁ¦ÇÏ±â ¹öÆ°À» ´­·¶À» °æ¿ì °¢°¢ ÇØ´çÇÏ´Â ¼­ºí¸´À¸·Î ÀÌµ¿ÇÏ¸ç mainÆäÀÌÁöÀÇ »õ·Î°íÄ§À» À§ÇØ ¸¸µé¾îÁø ÇÔ¼ö
-		if (n == "modify") {	//¼öÁ¤ÇÏ±â ¹öÆ°ÀÌ ¼±ÅÃµÇ¾úÀ» °æ¿ì
-			frm1.action = "/YU235/update";	//¼öÁ¤ÇÏ±â ¼­ºí¸´À¸·Î ÀÌµ¿ÇÏ¸ç
+	function btn_click(n) {//í˜„ì¬ í˜ì´ì§€ë¥¼ ë‹«ê³  ìˆ˜ì •í•˜ê¸°, ì‚­ì œí•˜ê¸° ë²„íŠ¼ì„ ëˆŒë €ì„ ê²½ìš° ê°ê° í•´ë‹¹í•˜ëŠ” ì„œë¸”ë¦¿ìœ¼ë¡œ ì´ë™í•˜ë©° mainí˜ì´ì§€ì˜ ìƒˆë¡œê³ ì¹¨ì„ ìœ„í•´ ë§Œë“¤ì–´ì§„ í•¨ìˆ˜
+		if (n == "modify") {	//ìˆ˜ì •í•˜ê¸° ë²„íŠ¼ì´ ì„ íƒë˜ì—ˆì„ ê²½ìš°
+			frm1.action = "/YU235/update";	//ìˆ˜ì •í•˜ê¸° ì„œë¸”ë¦¿ìœ¼ë¡œ ì´ë™í•˜ë©°
 			setTimeout(function(){
-			window.self.close();	//ÇöÀçÀÇ Ã¢À» ´İ°í
-				opener.location.href = "/YU235/main.jsp";	//main.jsp¸¦ »õ·Î°íÄ§ÇÑ´Ù.
+			window.self.close();	//í˜„ì¬ì˜ ì°½ì„ ë‹«ê³ 
+				opener.location.href = "/YU235/main.jsp";	//main.jspë¥¼ ìƒˆë¡œê³ ì¹¨í•œë‹¤.
 				 },10);
 			
 			
-		} else {	//»èÁ¦ÇÏ±â ¹öÆ°ÀÌ ¼±ÅÃµÇ¾úÀ» °æ¿ì
-			frm1.action = "/YU235/delete";	//»èÁ¦ÇÏ±â ¼­ºí¸´À¸·Î ÀÌµ¿ÇÏ¸ç
+		} else {	//ì‚­ì œí•˜ê¸° ë²„íŠ¼ì´ ì„ íƒë˜ì—ˆì„ ê²½ìš°
+			frm1.action = "/YU235/delete";	//ì‚­ì œí•˜ê¸° ì„œë¸”ë¦¿ìœ¼ë¡œ ì´ë™í•˜ë©°
 			setTimeout(function(){
-			window.self.close();	//ÇöÀçÀÇ Ã¢À» ´İ°í
-				opener.location.href = "/YU235/main.jsp";	//main.jsp¸¦ »õ·Î°íÄ§ÇÑ´Ù.
+			window.self.close();	//í˜„ì¬ì˜ ì°½ì„ ë‹«ê³ 
+				opener.location.href = "/YU235/main.jsp";	//main.jspë¥¼ ìƒˆë¡œê³ ì¹¨í•œë‹¤.
 				 },10);
 			
 		}
@@ -37,67 +37,67 @@
 <body>
 		<!-- Header -->
 			<header id="header">
-				<a href="index.jsp" class="logo">YU235</a>
+				<a href="inde.html" class="logo">YU235</a>
 			</header>
 
 	<%
-		String userId = request.getParameter("id");	//main.jsp·Î ºÎÅÍ ¿Â id°ªÀ» ÀĞ´Â´Ù.
-		//°ªÀ» ÀúÀåÇÏ±â À§ÇØ¼­ name, sex, position, dept, salÀ» ¼±¾ğ ¹× ÃÊ±âÈ­ÇÑ´Ù.
+		String userId = request.getParameter("id");	//main.jspë¡œ ë¶€í„° ì˜¨ idê°’ì„ ì½ëŠ”ë‹¤.
+		//ê°’ì„ ì €ì¥í•˜ê¸° ìœ„í•´ì„œ name, sex, position, dept, salì„ ì„ ì–¸ ë° ì´ˆê¸°í™”í•œë‹¤.
 		String name=null;
 		String hori=null;
 		String vert=null;
 		
-		//mainÆäÀÌÁö¿¡ ¿Â pkÀÎ id¸¦ ±â¹İÀ¸·Î db¿¡ Á¢±ÙÇÏ¿© ÇØ´çÇÏ´Â idÀÇ »ó¼¼Á¤º¸¸¦ Ãâ·ÂÇÑ´Ù.
+		//mainí˜ì´ì§€ì— ì˜¨ pkì¸ idë¥¼ ê¸°ë°˜ìœ¼ë¡œ dbì— ì ‘ê·¼í•˜ì—¬ í•´ë‹¹í•˜ëŠ” idì˜ ìƒì„¸ì •ë³´ë¥¼ ì¶œë ¥í•œë‹¤.
 		//select name, sex, position,dept,sal from employee where id=" + userId;
-		Connection conn = null; // null·Î ÃÊ±âÈ­ ÇÑ´Ù.
+		Connection conn = null; // nullë¡œ ì´ˆê¸°í™” í•œë‹¤.
 
-		//select.jsp´Â db¸¦ Á¢±ÙÇÒ ¶§ µ¿ÀÏÇÑ Äõ¸®¸¦ »ç¿ëÇÒ È®·üÀÌ ³ô±â ¶§¹®¿¡ Ä³½Ã¿¡ ¿Ã·ÁµÎ°í ¾²´Â °ÍÀÌ ÁÁ´Ù.
-		//µû¶ó¼­ statement°¡ ¾Æ´Ñ preparedstatement¸¦ »ç¿ëÇÑ´Ù.
+		//select.jspëŠ” dbë¥¼ ì ‘ê·¼í•  ë•Œ ë™ì¼í•œ ì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•  í™•ë¥ ì´ ë†’ê¸° ë•Œë¬¸ì— ìºì‹œì— ì˜¬ë ¤ë‘ê³  ì“°ëŠ” ê²ƒì´ ì¢‹ë‹¤.
+		//ë”°ë¼ì„œ statementê°€ ì•„ë‹Œ preparedstatementë¥¼ ì‚¬ìš©í•œë‹¤.
 		PreparedStatement stmt = null;
 		try {
-			String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB");		//"ÁÖ¼Ò:Æ÷Æ®:DB¸í"
+			String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB");		//"ì£¼ì†Œ:í¬íŠ¸:DBëª…"
 			String user = "system";														//username
 			String passwd = "tiger";													//password
-			Class.forName("oracle.jdbc.driver.OracleDriver"); // µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿ÇÏ±â À§ÇØ DriverManager¿¡ µî·ÏÇÑ´Ù.
-			conn = DriverManager.getConnection(connect, user, passwd); // DriverManager °´Ã¼·ÎºÎÅÍ Connection °´Ã¼¸¦ ¾ò¾î¿Â´Ù.
-			String sql = "select name, hori, vert from yu235 where id=" + userId; // sql Äõ¸®
-			stmt = conn.prepareStatement(sql); // prepareStatement¿¡¼­ ÇØ´ç sqlÀ» ¹Ì¸® ÄÄÆÄÀÏÇÑ´Ù.
-			ResultSet rset = stmt.executeQuery(); // Äõ¸®¸¦ ½ÇÇàÇÏ°í °á°ú¸¦ ResultSet °´Ã¼¿¡ ´ã´Â´Ù.
+			Class.forName("oracle.jdbc.driver.OracleDriver"); // ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ë™í•˜ê¸° ìœ„í•´ DriverManagerì— ë“±ë¡í•œë‹¤.
+			conn = DriverManager.getConnection(connect, user, passwd); // DriverManager ê°ì²´ë¡œë¶€í„° Connection ê°ì²´ë¥¼ ì–»ì–´ì˜¨ë‹¤.
+			String sql = "select name, hori, vert from cleaning where id=" + userId; // sql ì¿¼ë¦¬
+			stmt = conn.prepareStatement(sql); // prepareStatementì—ì„œ í•´ë‹¹ sqlì„ ë¯¸ë¦¬ ì»´íŒŒì¼í•œë‹¤.
+			ResultSet rset = stmt.executeQuery(); // ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•˜ê³  ê²°ê³¼ë¥¼ ResultSet ê°ì²´ì— ë‹´ëŠ”ë‹¤.
 			
-			while (rset.next()) { // °á°ú¸¦ ÇÑ Çà¾¿ µ¹¾Æ°¡¸é¼­ °¡Á®¿Â´Ù.
-			name=rset.getString("name");//StringÇü name¿¡  dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-			hori=rset.getString("hori");//StringÇü name¿¡  dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-			vert=rset.getString("vert");//StringÇü name¿¡  dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
+			while (rset.next()) { // ê²°ê³¼ë¥¼ í•œ í–‰ì”© ëŒì•„ê°€ë©´ì„œ ê°€ì ¸ì˜¨ë‹¤.
+			name=rset.getString("name");//Stringí˜• nameì—  dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+			hori=rset.getString("hori");//Stringí˜• nameì—  dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+			vert=rset.getString("vert");//Stringí˜• nameì—  dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 			}
 			conn.close();
-		} catch (Exception e) { // ¿¹¿Ü°¡ ¹ß»ıÇÏ¸é ¿¹¿Ü »óÈ²À» Ã³¸®ÇÑ´Ù.
+		} catch (Exception e) { // ì˜ˆì™¸ê°€ ë°œìƒí•˜ë©´ ì˜ˆì™¸ ìƒí™©ì„ ì²˜ë¦¬í•œë‹¤.
 			e.printStackTrace();
-			out.println("yu235 Å×ÀÌºí È£Ãâ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+			out.println("yu235 í…Œì´ë¸” í˜¸ì¶œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 		}
 	%>
-	<form name="frm1" method="POST"> 												<%--formÀ» ¼±¾ğ, post ¸Ş¼Òµå¸¦ »ç¿ë --%>
+	<form name="frm1" method="POST"> 												<%--formì„ ì„ ì–¸, post ë©”ì†Œë“œë¥¼ ì‚¬ìš© --%>
 		<table border="1" width="300" height="150" align="center">
 			<tr>
 				<input type="hidden" name="userId" value=<%=userId %>>
-				<td>id</td>															<%-- 1Çà 1¿­¿¡ »ç¹ø --%>
-				<td><%=userId%></td>		<%-- 1Çà 2¿­¿¡ ÀÔ·Â ¹Ş¾Æ¿Â userid¸¦ Ç¥½Ã --%>
+				<td>id</td>															<%-- 1í–‰ 1ì—´ì— ì‚¬ë²ˆ --%>
+				<td><%=userId%></td>		<%-- 1í–‰ 2ì—´ì— ì…ë ¥ ë°›ì•„ì˜¨ useridë¥¼ í‘œì‹œ --%>
 			</tr>
 			<tr>
-				<td>¹æÀÌ¸§</td>															<%-- 2Çà 1¿­¿¡ ÀÌ¸§ --%>
-				<td><input type="text" name="name" value="<%=name%>"></td>			<%-- 2Çà 2¿­¿¡ ÀÔ·Â ¹Ş¾Æ¿Â nameÀ» Ç¥½Ã --%>
+				<td>ë°©ì´ë¦„</td>															<%-- 2í–‰ 1ì—´ì— ì´ë¦„ --%>
+				<td><input type="text" name="name" value="<%=name%>"></td>			<%-- 2í–‰ 2ì—´ì— ì…ë ¥ ë°›ì•„ì˜¨ nameì„ í‘œì‹œ --%>
 			</tr>
 			<tr>
-				<td>°¡·Î</td>															<%-- 2Çà 1¿­¿¡ ÀÌ¸§ --%>
-				<td><input type="text" name="hori" value="<%=hori%>"></td>			<%-- 2Çà 2¿­¿¡ ÀÔ·Â ¹Ş¾Æ¿Â nameÀ» Ç¥½Ã --%>
+				<td>ê°€ë¡œ</td>															<%-- 2í–‰ 1ì—´ì— ì´ë¦„ --%>
+				<td><input type="text" name="hori" value="<%=hori%>"></td>			<%-- 2í–‰ 2ì—´ì— ì…ë ¥ ë°›ì•„ì˜¨ nameì„ í‘œì‹œ --%>
 			</tr>
 			<tr>
-				<td>¼¼·Î</td>															<%-- 2Çà 1¿­¿¡ ÀÌ¸§ --%>
-				<td><input type="text" name="vert" value="<%=vert%>"></td>			<%-- 2Çà 2¿­¿¡ ÀÔ·Â ¹Ş¾Æ¿Â nameÀ» Ç¥½Ã --%>
+				<td>ì„¸ë¡œ</td>															<%-- 2í–‰ 1ì—´ì— ì´ë¦„ --%>
+				<td><input type="text" name="vert" value="<%=vert%>"></td>			<%-- 2í–‰ 2ì—´ì— ì…ë ¥ ë°›ì•„ì˜¨ nameì„ í‘œì‹œ --%>
 			</tr>
 		</table>
 		<p align="right">
-		<input type="submit" value="»èÁ¦ÇÏ±â" onClick='btn_click("delete");'>			<%--»èÁ¦ÇÏ±â submit»ı¼º, ¼±ÅÃ½Ã btn_click("delete")ÇÔ¼ö°¡ È£ÃâµÈ´Ù. --%>
-		<input type="submit" value="¼öÁ¤ÇÏ±â" onClick='btn_click("modify");'>			<%--¼öÁ¤ÇÏ±â submit»ı¼º, ¼±ÅÃ½Ã btn_click("modify")ÇÔ¼ö°¡ È£ÃâµÈ´Ù. --%>
+		<input type="submit" value="ì‚­ì œí•˜ê¸°" onClick='btn_click("delete");'>			<%--ì‚­ì œí•˜ê¸° submitìƒì„±, ì„ íƒì‹œ btn_click("delete")í•¨ìˆ˜ê°€ í˜¸ì¶œëœë‹¤. --%>
+		<input type="submit" value="ìˆ˜ì •í•˜ê¸°" onClick='btn_click("modify");'>			<%--ìˆ˜ì •í•˜ê¸° submitìƒì„±, ì„ íƒì‹œ btn_click("modify")í•¨ìˆ˜ê°€ í˜¸ì¶œëœë‹¤. --%>
 		</p>
 			</form>
 	<br>

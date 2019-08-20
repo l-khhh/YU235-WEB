@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     <%@ page import="java.sql.*"%>
     
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <!-- bootstrap CSS -->
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -15,85 +15,85 @@
 </head>
 <body>
 <%
-		String userId = request.getParameter("id");	//main.jsp·Î ºÎÅÍ ¿Â id°ªÀ» ÀÐ´Â´Ù.
+		String userId = request.getParameter("id");	//main.jspë¡œ ë¶€í„° ì˜¨ idê°’ì„ ì½ëŠ”ë‹¤.
 %>
 		<!-- Header -->
 			<header id="header">
-				<a href="index.jsp" class="logo">YU235</a>
+				<a href="inde.html" class="logo">YU235</a>
 			</header>
 
 		
-	<%--Å×ÀÌºí »ý¼º --%>
+	<%--í…Œì´ë¸” ìƒì„± --%>
 	<table id="employee" border="1" width="300"
 		class="table table-bordered table-hover text-center">
 
 		<thead>
 			<tr>
-				<th>È¸Â÷</th>
-				<%-- Å×ÀÌºíÀÇ Ã¹ Çà¿¡ »ç¹ø  --%>
-				<th>¹æ³Ñ¹ö</th>
-				<%-- Å×ÀÌºíÀÇ Ã¹ Çà¿¡ ÀÌ¸§  --%>
-				<th>½ÃÀÛ½Ã°£</th>
-				<th>Á¾·á½Ã°£</th>
+				<th>íšŒì°¨</th>
+				<%-- í…Œì´ë¸”ì˜ ì²« í–‰ì— ì‚¬ë²ˆ  --%>
+				<th>ë°©ë„˜ë²„</th>
+				<%-- í…Œì´ë¸”ì˜ ì²« í–‰ì— ì´ë¦„  --%>
+				<th>ì‹œìž‘ì‹œê°„</th>
+				<th>ì¢…ë£Œì‹œê°„</th>
 			</tr>
 		</thead>
 
 		<%
-			//mainÆäÀÌÁö¿¡ pkÀÎ id¿Í ÀÌ¸§À» °£·«ÇÏ°Ô Ç¥½ÃÇØÁÖ±â À§ÇØ DB¿¡ Á¢±ÙÇÏ¿© employeeÅ×ÀÌºíÀÇ ¸ðµç Á¤º¸¸¦ idÀÇ ¿À¸§Â÷¼øÀ¸·Î Ãâ·ÂÇÑ´Ù.
+			//mainíŽ˜ì´ì§€ì— pkì¸ idì™€ ì´ë¦„ì„ ê°„ëžµí•˜ê²Œ í‘œì‹œí•´ì£¼ê¸° ìœ„í•´ DBì— ì ‘ê·¼í•˜ì—¬ employeeí…Œì´ë¸”ì˜ ëª¨ë“  ì •ë³´ë¥¼ idì˜ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì¶œë ¥í•œë‹¤.
 			//select id, name from employee order by id;
-			Connection conn = null; // null·Î ÃÊ±âÈ­ ÇÑ´Ù.
+			Connection conn = null; // nullë¡œ ì´ˆê¸°í™” í•œë‹¤.
 
-			//main.jsp´Â db¸¦ ÀÚÁÖ Á¢±ÙÇÏ¸ç µ¿ÀÏÇÑ Äõ¸®¸¦ »ç¿ëÇÏ±â ¶§¹®¿¡ Ä³½Ã¿¡ ¿Ã·ÁµÎ°í ¾²´Â °ÍÀÌ ÁÁ´Ù.
-			//µû¶ó¼­ statement°¡ ¾Æ´Ñ preparedstatement¸¦ »ç¿ëÇÑ´Ù.
+			//main.jspëŠ” dbë¥¼ ìžì£¼ ì ‘ê·¼í•˜ë©° ë™ì¼í•œ ì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•˜ê¸° ë•Œë¬¸ì— ìºì‹œì— ì˜¬ë ¤ë‘ê³  ì“°ëŠ” ê²ƒì´ ì¢‹ë‹¤.
+			//ë”°ë¼ì„œ statementê°€ ì•„ë‹Œ preparedstatementë¥¼ ì‚¬ìš©í•œë‹¤.
 			PreparedStatement stmt = null;
 
 			try {
-				String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB"); //"ÁÖ¼Ò:Æ÷Æ®:DB¸í"
+				String connect = new String("jdbc:oracle:thin:@localhost:1521:TestDB"); //"ì£¼ì†Œ:í¬íŠ¸:DBëª…"
 				String user = "system"; //username
 				String passwd = "tiger"; //password
 
-				Class.forName("oracle.jdbc.driver.OracleDriver"); // µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿ÇÏ±â À§ÇØ DriverManager¿¡ µî·ÏÇÑ´Ù.
-				conn = DriverManager.getConnection(connect, user, passwd); // DriverManager °´Ã¼·ÎºÎÅÍ Connection °´Ã¼¸¦ ¾ò¾î¿Â´Ù.
-				String sql = "select * from list where id="+userId; // sql Äõ¸® , id¸¦ ¿À¸§Â÷¼øÀ¸·Î ÀüÃ¼ id¿Í nameÀ» Ãâ·ÂÇÑ´Ù.
-				stmt = conn.prepareStatement(sql); // prepareStatement¿¡¼­ ÇØ´ç sqlÀ» ¹Ì¸® ÄÄÆÄÀÏÇÑ´Ù.
-				ResultSet rset = stmt.executeQuery(); // Äõ¸®¸¦ ½ÇÇàÇÏ°í °á°ú¸¦ ResultSet °´Ã¼¿¡ ´ã´Â´Ù.
+				Class.forName("oracle.jdbc.driver.OracleDriver"); // ë°ì´í„°ë² ì´ìŠ¤ì™€ ì—°ë™í•˜ê¸° ìœ„í•´ DriverManagerì— ë“±ë¡í•œë‹¤.
+				conn = DriverManager.getConnection(connect, user, passwd); // DriverManager ê°ì²´ë¡œë¶€í„° Connection ê°ì²´ë¥¼ ì–»ì–´ì˜¨ë‹¤.
+				String sql = "select * from list where id="+userId; // sql ì¿¼ë¦¬ , idë¥¼ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì „ì²´ idì™€ nameì„ ì¶œë ¥í•œë‹¤.
+				stmt = conn.prepareStatement(sql); // prepareStatementì—ì„œ í•´ë‹¹ sqlì„ ë¯¸ë¦¬ ì»´íŒŒì¼í•œë‹¤.
+				ResultSet rset = stmt.executeQuery(); // ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•˜ê³  ê²°ê³¼ë¥¼ ResultSet ê°ì²´ì— ë‹´ëŠ”ë‹¤.
 				
 				if(!rset.next()){%>
-				<h3 align=center><%=userId%>¹ø ¹æÀº Ã»¼ÒÇÑ ³»¿ªÀÌ ¾ø½À´Ï´Ù.</h3><br>
+				<h3 align=center><%=userId%>ë²ˆ ë°©ì€ ì²­ì†Œí•œ ë‚´ì—­ì´ ì—†ìŠµë‹ˆë‹¤.</h3><br>
 				<%}
 				else{%>
-				<h3 align=center><%=userId%>¹ø ¹æÀÇ Ã»¼Ò ³»¿ª ÀÔ´Ï´Ù.</h3><br>
+				<h3 align=center><%=userId%>ë²ˆ ë°©ì˜ ì²­ì†Œ ë‚´ì—­ ìž…ë‹ˆë‹¤.</h3><br>
 				<%}
 				
-				while (rset.next()) { // °á°ú¸¦ ÇÑ Çà¾¿ µ¹¾Æ°¡¸é¼­ °¡Á®¿Â´Ù.
-					String seq = rset.getString("seq"); //StringÇü id¸¦ ¼±¾ðÇÏ¿© dbÀÇ id¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-					String id = rset.getString("id"); //StringÇü nameÀ» ¼±¾ðÇÏ¿© dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-					String start = rset.getString("start_time"); //StringÇü nameÀ» ¼±¾ðÇÏ¿© dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
-					String end = rset.getString("end_time"); //StringÇü nameÀ» ¼±¾ðÇÏ¿© dbÀÇ name¼Ó¼ºÀÇ °ªÀ» °¡Á®¿Â´Ù.
+				while (rset.next()) { // ê²°ê³¼ë¥¼ í•œ í–‰ì”© ëŒì•„ê°€ë©´ì„œ ê°€ì ¸ì˜¨ë‹¤.
+					String seq = rset.getString("seq"); //Stringí˜• idë¥¼ ì„ ì–¸í•˜ì—¬ dbì˜ idì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+					String id = rset.getString("id"); //Stringí˜• nameì„ ì„ ì–¸í•˜ì—¬ dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+					String start = rset.getString("start_time"); //Stringí˜• nameì„ ì„ ì–¸í•˜ì—¬ dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+					String end = rset.getString("end_time"); //Stringí˜• nameì„ ì„ ì–¸í•˜ì—¬ dbì˜ nameì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 		%>
 		<tbody>
 			<tr>
 				<td width="100"><%=seq%></td>
-				<%--¿À¸§Â÷¼øÀ¸·Î ³ª¿Â dbµ¥ÀÌÅÍÀÇ °¡Àå ÀÛÀº idºÎÅÍ Çà Ãß°¡ --%>
+				<%--ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë‚˜ì˜¨ dbë°ì´í„°ì˜ ê°€ìž¥ ìž‘ì€ idë¶€í„° í–‰ ì¶”ê°€ --%>
 				<td width="100"><%=id%></td>
-				<%--¿À¸§Â÷¼øÀ¸·Î ³ª¿Â dbµ¥ÀÌÅÍÀÇ °¡Àå ÀÛÀº idÀÇ nameºÎÅÍ Çà Ãß°¡ --%>
+				<%--ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë‚˜ì˜¨ dbë°ì´í„°ì˜ ê°€ìž¥ ìž‘ì€ idì˜ nameë¶€í„° í–‰ ì¶”ê°€ --%>
 				<td width="100"><%=start%></td>
 				<td width="100"><%=end%></td>
 			</tr>
 			<%
 				}
 					conn.close();
-				} catch (Exception e) { // ¿¹¿Ü°¡ ¹ß»ýÇÏ¸é ¿¹¿Ü »óÈ²À» Ã³¸®ÇÑ´Ù.
+				} catch (Exception e) { // ì˜ˆì™¸ê°€ ë°œìƒí•˜ë©´ ì˜ˆì™¸ ìƒí™©ì„ ì²˜ë¦¬í•œë‹¤.
 					e.printStackTrace();
-					out.println("yu235_2 Å×ÀÌºí È£Ãâ¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
+					out.println("yu235_2 í…Œì´ë¸” í˜¸ì¶œì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 				}
 			%>
 
 		</tbody>
 	</table>
 	<div align="center">
-			<input type="submit" value="È®ÀÎ"	 onClick="window.close();">							<%-- È®ÀÎ ¹öÆ° Ãß°¡ --%>
+			<input type="submit" value="í™•ì¸"	 onClick="window.close();">							<%-- í™•ì¸ ë²„íŠ¼ ì¶”ê°€ --%>
 	</div>
 	
 

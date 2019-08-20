@@ -8,7 +8,7 @@ import javax.servlet.http.*;
  * Servlet implementation class insertServlet
  */
 
-@WebServlet(name = "delete", description = "»ç¿ø »èÁ¦ ¼­ºí¸´", urlPatterns = { "/delete" }) // ¼­ºí¸´ ¼³¸í
+@WebServlet(name = "delete", description = "ì‚­ì œ", urlPatterns = { "/delete" }) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public class deleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -16,16 +16,16 @@ public class deleteServlet extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 
-	public void init(ServletConfig conf) throws ServletException { // ¼­ºí¸´ÀÇ ÃÊ±âÈ­½Ã db¿¬µ¿
+	public void init(ServletConfig conf) throws ServletException { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ dbï¿½ï¿½ï¿½ï¿½
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver"); // µ¥ÀÌÅÍº£ÀÌ½º¿Í ¿¬µ¿ÇÏ±â À§ÇØ DriverManager¿¡ µî·ÏÇÑ´Ù.
+			Class.forName("oracle.jdbc.driver.OracleDriver"); // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ DriverManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("DB connect Succeeded"); // db¿¬µ¿ ÄÜ¼Ö¿¡¼­ È®ÀÎ
+		System.out.println("DB connect Succeeded"); // dbï¿½ï¿½ï¿½ï¿½ ï¿½Ü¼Ö¿ï¿½ï¿½ï¿½ È®ï¿½ï¿½
 	}
 
-	public deleteServlet() { // »ý¼ºÀÚ
+	public deleteServlet() { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -50,17 +50,16 @@ public class deleteServlet extends HttpServlet {
 		String str = (String) request.getParameter("userId");
 
 		try {
-			DO x = new DO(); // do °´Ã¼ »ý¼º
-			DAO y = new DAO(); // dao °´Ã¼ »ý¼º
+			DO x = new DO();
+			DAO y = new DAO(); 
 
-			// °ª°¡Á®¿À±â
-			x.setId(str); // post·Î ³Ñ¾î¿Â id¸¦ xÀÇ id·Î setÇÑ´Ù
+			x.setId(str); 
 
-			// ³Ñ¾î¿Â °ªµéÀÌ Á¤»óÀûÀ¸·Î Àß ³Ñ¾î¿Ô´ÂÁö ÄÜ¼Ö¿¡¼­ È®ÀÎ
-			System.out.println("deleteServlet ½ÇÇà");
-			System.out.println("ID °ªÀº " + x.getId() + " ÀÔ´Ï´Ù.");
+			
+			System.out.println("deleteServlet ì‹¤í–‰");
+			System.out.println("ID : " + x.getId() );
 
-			y.deleteItem(x); // daoÀÇ deleteitem ¸Þ¼Òµå¿¡ Á¢±Ù
+			y.deleteItem(x); 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

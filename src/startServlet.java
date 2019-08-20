@@ -49,24 +49,24 @@ public class startServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.setCharacterEncoding("euc-kr");
+		request.setCharacterEncoding("utf-8");
 
 		String str = (String) request.getParameter("userId");
 		System.out.println(str);
 
 		try {
-			DO x = new DO(); // do ��ü ����
+			DO x = new DO(); 
 			DAO y = new DAO(); // dao ��ü ����
 
 			// ����������
 			x.setId(str); // post�� �Ѿ�� id���� x�� id�� set
 			x.setOnoff("on");
 			
-			System.out.println("startServlet ����");
+			System.out.println("startServlet 실행");
 			System.out.println("ID : " + x.getId() + "입니다.");
 			System.out.println("onoff : " + x.getOnoff() + " 입니다.");
 			
-			y.startItem(x);// dao�� updateitem �޼ҵ忡 ����
+			y.startItem(x);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

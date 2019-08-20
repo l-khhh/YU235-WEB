@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
 <title>Insert title here</title>
-<script language=javascript>	//ÇöÀç ÆäÀÌÁö¸¦ ´İ°í »õ·Î°íÄ§À» À§ÇØ ¸¸µç ÇÔ¼ö
-function refresh() {									//»õ·Î°íÄ§À» À§ÇÑ ½ºÅ©¸³Æ®
-window.close();											//ÇöÀç ÆäÀÌÁö¸¦ ´İÀ½
-opener.location.href = "/YU235/main.jsp?id="+userId;			//mainÆäÀÌÁö¸¦ »õ·Î°íÄ§ÇÑ´Ù.
+<script language=javascript>	//í˜„ì¬ í˜ì´ì§€ë¥¼ ë‹«ê³  ìƒˆë¡œê³ ì¹¨ì„ ìœ„í•´ ë§Œë“  í•¨ìˆ˜
+function refresh() {									//ìƒˆë¡œê³ ì¹¨ì„ ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸
+window.close();											//í˜„ì¬ í˜ì´ì§€ë¥¼ ë‹«ìŒ
+opener.location.href = "/YU235/main.jsp?id="+userId;			//mainí˜ì´ì§€ë¥¼ ìƒˆë¡œê³ ì¹¨í•œë‹¤.
 }
 </script>
 </head>
@@ -20,25 +20,25 @@ opener.location.href = "/YU235/main.jsp?id="+userId;			//mainÆäÀÌÁö¸¦ »õ·Î°íÄ§ÇÑ
 
 <body>
 <%
-		String userId = request.getParameter("id");	//main.jsp·Î ºÎÅÍ ¿Â id°ªÀ» ÀĞ´Â´Ù.
+		String userId = request.getParameter("id");	//main.jspë¡œ ë¶€í„° ì˜¨ idê°’ì„ ì½ëŠ”ë‹¤.
 %>
 <!-- Header -->
 			<header id="header">
-				<a href="index.jsp" class="logo">YU235</a>
+				<a href="inde.html" class="logo">YU235</a>
 			</header>
 
 <div>
 <table>
 <tr><td>
-<h3 align="center"><%=userId%>¹ø ¹æÀÇ Ã»¼Ò¸¦ ÁøÇàÇÏ½Ã°Ú½À´Ï±î?</h3>
+<h3 align="center"><%=userId%>ë²ˆ ë°©ì˜ ì²­ì†Œë¥¼ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?</h3>
 </td></tr>
 </table>
 </div>
  <div>
  <form action="/YU235/start" method="post" align=center> 		
  				<input type="hidden" name="userId" value="<%=userId%>">
- 							<%--formÀ» ¼±¾ğ, post ¸Ş¼Òµå¸¦ »ç¿ë --%>
-				<input type="submit" value="È®ÀÎ"	 onClick="refresh();">							<%-- È®ÀÎ ¹öÆ° Ãß°¡ --%>
+ 							<%--formì„ ì„ ì–¸, post ë©”ì†Œë“œë¥¼ ì‚¬ìš© --%>
+				<input type="submit" value="í™•ì¸"	 onClick="refresh();">							<%-- í™•ì¸ ë²„íŠ¼ ì¶”ê°€ --%>
 </form>
 </div>
 
