@@ -37,7 +37,7 @@
 <body>
 		<!-- Header -->
 			<header id="header">
-				<a href="inde.html" class="logo">YU235</a>
+				<a href="index.html" class="logo">YU235</a>
 			</header>
 
 	<%
